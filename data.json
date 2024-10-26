@@ -1,0 +1,14 @@
+{
+    "2024-10-25": {
+        "Johnoe": {
+            "InOrOut": "IN",
+            "Time": "11:18",
+            "reason": "test"
+        },
+        "Pierce": {
+            "InOrOut": "IN",
+            "Time": "11:22",
+            "reason": "Visi"
+        }
+    }
+}
