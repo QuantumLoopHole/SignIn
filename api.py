@@ -1,4 +1,5 @@
 from flask import Flask, jsonify, request
+from flask_cors import CORS
 import json
 from datetime import datetime
 
@@ -37,12 +38,25 @@ def DataWrite(name, reason, InOrOut):
 
     return f"Data for {name} has been written to the file."
 
-@app.route("/LogIn", methods=['GET'])
-def LogIn():
+@app.route("/Log", methods=['GET'])
+def Log():
     name = request.args.get('LoginName') 
-    reason = request.args.get('Reason')  # Use a different parameter for reason
-    message = DataWrite(name, reason, "IN")
-    return jsonify({"message": message})
+    reason = request.args.get('Reason')  
+    inout = request.args.get("inout")
+    message = DataWrite(name, reason, inout)
+    return "(:)"
+   # return jsonify({"message": message})
+
+@app.route("/test", methods=['GET'])
+def test():
+    print("Test")
+    return ":)"
+
+@app.route("/getdata", methods=['GET'])
+def getdata():
+    with open("./data.json", 'r') as file:
+        data = json.load(file)
+    return data
 
 if __name__ == '__main__':
     app.run(debug=True)

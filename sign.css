@@ -54,7 +54,8 @@ h1 {
     margin-bottom: 30px;
 }
 
-.input-group input {
+.input-group input,
+.input-group select {
     width: 100%;
     padding: 10px;
     background: rgba(255, 255, 255, 0.1);
@@ -82,7 +83,31 @@ h1 {
     top: -10px;
     font-size: x-large;
     color: #ffffff;
+}
 
+.input-group select {
+    width: 100%;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.1); /* Background similar to input */
+    border: none;
+    border-radius: 5px;
+    outline: none;
+    color: white;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    appearance: none; /* Remove default dropdown arrow */
+    -moz-appearance: none; /* Firefox */
+    -webkit-appearance: none; /* Safari */
+    position: relative; /* For positioning the custom arrow */
+}
+
+.input-group::after {
+    position: absolute;
+    top: 50%;
+    right: 10px; /* Positioning the arrow */
+    transform: translateY(-50%);
+    color: white; /* Arrow color */
+    pointer-events: none; /* Ignore pointer events */
 }
 
 .btn {
@@ -113,4 +138,18 @@ h1 {
 .cancel-btn:hover {
     background-color: #ff6b6b; /* Red background on hover */
     color: white; /* White text on hover */
+}
+
+/* Additional styles for the "Other" input */
+#otherReason {
+    width: 100%;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    border-radius: 5px;
+    outline: none;
+    color: white;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    margin-top: 10px; /* Space above input */
 }
