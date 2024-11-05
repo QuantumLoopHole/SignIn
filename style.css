@@ -5,26 +5,26 @@
 }
 
 body {
-    min-height: 100vh; /* Ensure body takes full height */
+    height: 100vh;
     display: flex;
-    justify-content: center; /* Center content horizontally */
-    align-items: center; /* Center content vertically */
-    flex-direction: column; /* Arrange items vertically */
-    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    justify-content: center;
+    align-items: center;
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(45deg, #8E1E2A, #000000, #ffffff);
     background-size: 400% 400%;
-    animation: gradient 15s ease infinite;
+    animation: gradient 15s ease forwards infinite;
 }
 
 @keyframes gradient {
     0% {
-        background-position: 0% 50%;
+        background-position: 100% 100%;
+        
     }
     50% {
-        background-position: 100% 50%;
+        background-position: 10% 10%;
     }
     100% {
-        background-position: 0% 50%;
-    }
+        background-position: 100% 100%;    }
 }
 
 .content {

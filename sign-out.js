@@ -30,14 +30,18 @@ document.getElementById("sign-in-form").addEventListener("submit", function(even
         if (!response.ok) {
             throw new Error("Network response was not ok " + response.statusText);
         }
+        window.location.href = "./index.html";
         return response.json();
     })
     .then(data => {
         console.log("Response from server:", data.message);
+       
+
     })
     .catch(error => {
         console.error("Error:", error);
     });
+
 });
 
 function cancel() {
