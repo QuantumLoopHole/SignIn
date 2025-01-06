@@ -64,8 +64,14 @@ def getdata():
         data = json.load(file)
     return jsonify(data)
 
-if __name__ == '__main__':
+
+
+@app.route("/update", methods=['GET'])
+    def update:
+        with open('./version.num', 'r') as file:
+        data = file.read().rstrip()
+
+if __name__ == '__main__'
     app.run(debug=True)
 
 
-@app.route
