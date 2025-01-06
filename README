@@ -1,7 +1,15 @@
 # User Logging System for Physical Spaces
 
-Commands:
+## Version A 1 
 
-`` SetServerAddress `` runs a prompt to enter a new server address. 
+> [!CAUTION]
+> README is currently underconstruction, don't expect anything glamours down here until this is sorted out :)
 
-```SetOrgName``` runs a prompt to enter a new name to be displayed through the program.
+
+### Commands
+
+`SetServerAddress` runs a prompt to enter a new server address. 
+
+`SetOrgName` runs a prompt to enter a new name to be displayed through the program.
+
+
