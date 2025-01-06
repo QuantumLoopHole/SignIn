@@ -1,3 +1,7 @@
-# Logins made simple
-#### Video Demo:  https://youtu.be/mu2M9JdwHPo
-#### Description: A logging system for users to use when entering a space, IE a school or office. 
+# User Logging System for Physical Spaces
+
+Commands:
+
+``SetServerAddress`` runs a prompt to enter a new server address. 
+
+``SetOrgName`` runs a prompt to enter a new name to be displayed through the program.
