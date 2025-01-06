@@ -4,4 +4,4 @@ Commands:
 
 ``SetServerAddress`` runs a prompt to enter a new server address. 
 
-``SetOrgName`` runs a prompt to enter a new name to be displayed through the program.
+```SetOrgName``` runs a prompt to enter a new name to be displayed through the program.
