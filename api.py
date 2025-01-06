@@ -67,11 +67,23 @@ def getdata():
 
 
 @app.route("/update", methods=['GET'])
-    def update:
-        with open('./version.num', 'r') as file:
-        data = file.read().rstrip()
+def update():
+    with open('./version.num', 'r') as file:
+        current_version = file.read().rstrip() 
 
-if __name__ == '__main__'
-    app.run(debug=True)
+        with open('https://raw.githubusercontent.com/QuantumLoopHole/SignIn/refs/heads/master/version.num', 'r') as file:
+            updated_version = file.read.rstrip()
+            if float(current_version) < float(updated_version):
+                import subprocess
+                subprocess.run(['git', 'fetch'], check=True)
+                subprocess.run(['git', 'checkout', 'main'], check=True) 
+                subprocess.run(['git', 'pull'], check=True)
 
+                print("repository updated successfully. Restarting Server...")
+        
 
+if __name__ == '__main__':
+    import socket
+    myip = socket.gethostbyname(socket.gethostname())
+
+    app.run(host=myip, port=5000, debug=True, threaded=False)
