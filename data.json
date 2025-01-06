@@ -1,80 +1,18 @@
 {
-    "2024-10-25": {
-        "Johnoe": {
-            "InOrOut": "IN",
-            "Time": "11:18",
-            "reason": "test"
-        },
-        "QR": {
-            "InOrOut": "IN",
-            "Time": "11:22",
-            "reason": "Visi"
-        },
-        "": {
-            "InOrOut": "OUT",
-            "Time": "22:53",
-            "reason": null
-        },
-        "fds": {
-            "InOrOut": "OUT",
-            "Time": "22:56",
-            "reason": null
-        },
-        "ada": {
-            "InOrOut": "IN",
-            "Time": "22:57",
-            "reason": null
-        },
-        "BB": {
-            "InOrOut": "OUT",
-            "Time": "23:08",
-            "reason": "Professional Visit"
-        }
-    },
-    "2024-10-26": {
-        "Ada": {
-            "InOrOut": "OUT",
-            "Time": "00:11",
-            "reason": "Visit"
-        },
-        "aSD": {
-            "InOrOut": "OUT",
-            "Time": "00:14",
-            "reason": "Pickup"
-        }
-    },
-    "2024-10-28": {
-        "Vickie Pierce": {
-            "InOrOut": "IN",
-            "Time": "08:18",
-            "reason": "Professional Visit"
-        },
-        "Alden": {
-            "InOrOut": "IN",
-            "Time": "08:22",
-            "reason": "nuggets"
-        },
-        "Ada": {
-            "InOrOut": "IN",
-            "Time": "22:12",
-            "reason": "DR apointment"
-        },
-        "test": {
-            "InOrOut": "IN",
-            "Time": "08:23",
-            "reason": "test"
-        },
-        "test2": {
-            "InOrOut": "IN",
-            "Time": "08:24",
-            "reason": "Professional Visit"
-        }
-    },
-    "2024-10-29": {
-        "vmp": {
-            "InOrOut": "IN",
-            "Time": "10:14",
-            "reason": "Professional Visit"
-        }
+    "2024-12-30": {
+        "Jane Doe": [
+            {
+                "Out": {
+                    "Time": "12:01",
+                    "reason": "Opted Out"
+                }
+            },
+            {
+                "In": {
+                    "Time": "12:00",
+                    "reason": "Professional Visit"
+                }
+            }
+        ]
     }
 }

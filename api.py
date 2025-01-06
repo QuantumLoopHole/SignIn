@@ -21,12 +21,16 @@ def DataWrite(name, reason, InOrOut):
     if current_date not in data:
         data[current_date] = {}
 
-    # Add or update the user's entry
-    data[current_date][name] = {
-        "InOrOut": InOrOut,
+    # Ensure the user's entry exists for the current date
+    if name not in data[current_date]:
+        data[current_date][name] = []
+
+    # Prepend the new entry to the user's log (instead of appending)
+    new_entry = {
         "Time": datetime.now().strftime("%H:%M"),
         "reason": reason if reason else None  # Set to None if reason is empty
     }
+    data[current_date][name].insert(0, {InOrOut: new_entry})  # Insert at the start
 
     try:
         # Write the updated data back to the file
@@ -36,7 +40,9 @@ def DataWrite(name, reason, InOrOut):
     except Exception as e:
         print(f"Error writing to file: {e}")
 
+    print(InOrOut)
     return f"Data for {name} has been written to the file."
+
 
 @app.route("/Log", methods=['GET'])
 def Log():
@@ -45,7 +51,7 @@ def Log():
     inout = request.args.get("inout")
     message = DataWrite(name, reason, inout)
     return "(:)"
-   # return jsonify({"message": message})
+
 
 @app.route("/test", methods=['GET'])
 def test():
@@ -56,7 +62,7 @@ def test():
 def getdata():
     with open("./data.json", 'r') as file:
         data = json.load(file)
-    return data
+    return jsonify(data)
 
 if __name__ == '__main__':
     app.run(debug=True)

@@ -8,19 +8,6 @@ document.addEventListener('DOMContentLoaded', () => {
             for (const date in data) {
                 const dateData = data[date];
 
-                // Convert dateData to an array and sort by time
-                const entriesArray = Object.entries(dateData).map(([name, entry]) => ({
-                    name,
-                    ...entry
-                }));
-
-                entriesArray.sort((a, b) => {
-                    // Convert time to minutes for comparison
-                    const [aHours, aMinutes] = a.Time.split(':').map(Number);
-                    const [bHours, bMinutes] = b.Time.split(':').map(Number);
-                    return aHours * 60 + aMinutes - (bHours * 60 + bMinutes);
-                });
-
                 // Create a table for each date
                 const table = document.createElement('table');
                 const thead = document.createElement('thead');
@@ -36,25 +23,38 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
                 thead.appendChild(headerRow);
 
-                // Populate the table with sorted data
-                entriesArray.forEach(entry => {
-                    const row = document.createElement('tr');
-                    
-                    const tdName = document.createElement('td');
-                    tdName.textContent = entry.name || "Unknown"; // Handle empty names
-                    const tdInOut = document.createElement('td');
-                    tdInOut.textContent = entry.InOrOut;
-                    const tdTime = document.createElement('td');
-                    tdTime.textContent = entry.Time;
-                    const tdReason = document.createElement('td');
-                    tdReason.textContent = entry.reason || "N/A"; // Handle null reasons
+                // Iterate over each person (name) for the current date
+                for (const name in dateData) {
+                    const userData = dateData[name];
 
-                    row.appendChild(tdName);
-                    row.appendChild(tdInOut);
-                    row.appendChild(tdTime);
-                    row.appendChild(tdReason);
-                    tbody.appendChild(row);
-                });
+                    // Iterate over each log entry for the current user
+                    userData.forEach(entry => {
+                        // If the entry is 'In' or 'Out'
+                        for (const inOutKey in entry) {
+                            const row = document.createElement('tr');
+                            const tdName = document.createElement('td');
+                            tdName.textContent = name || "Unknown"; // Handle empty names
+
+                            const tdInOut = document.createElement('td');
+                            tdInOut.textContent = inOutKey; // Either 'In' or 'Out'
+
+                            const tdTime = document.createElement('td');
+                            tdTime.textContent = entry[inOutKey].Time;
+
+                            const tdReason = document.createElement('td');
+                            tdReason.textContent = entry[inOutKey].reason || "N/A"; // Handle null reasons
+
+                            // Append data to the row
+                            row.appendChild(tdName);
+                            row.appendChild(tdInOut);
+                            row.appendChild(tdTime);
+                            row.appendChild(tdReason);
+
+                            // Add the row to the table body
+                            tbody.appendChild(row);
+                        }
+                    });
+                }
 
                 table.appendChild(thead);
                 table.appendChild(tbody);

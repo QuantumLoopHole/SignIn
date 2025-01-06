@@ -16,7 +16,7 @@ function toggleOtherInput() {
 document.getElementById("sign-in-form").addEventListener("submit", function(event) {
     event.preventDefault();  // Prevents the default form submission
 
-    const inout = 'OUT'; // Define inout here
+    const inout = 'Out'; // Define inout here
     const loginName = document.getElementById("name").value;
     const reasonSelect = document.getElementById("reason");
     const reason = reasonSelect.value === "Other" ? document.getElementById("otherReason").value : reasonSelect.value; // Get either selected or inputted value

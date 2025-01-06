@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign In</title>
+    <title>Sign Out</title>
     <link rel="stylesheet" href="./sign.css">
 </head>
 <body>
     <div class="container">
         <div class="form-box">
-            <h1>Sign In</h1>
+            <h1>Sign Out</h1>
             <form id="sign-in-form">
                 <div class="input-group">
                     <input type="text" id="name" required placeholder="NAME">
@@ -17,7 +17,7 @@
                 <div class="input-group triangle">
                     <!-- <label for="reason">Reason</label> -->
                     <select id="reason" required onchange="toggleOtherInput()">
-                        <option value="">Select a reason ▼</option>
+                        <option value="Opted Out">Select a reason (optinal)▼</option>
                         <option value="Sick">Sick</option>
                         <option value="Pickup">Pickup</option>
                         <option value="DR apointment">DR apointment</option>
@@ -31,5 +31,5 @@
         </div>
     </div>
 </body>
-<script src="./sign-in.js"></script>
+<script src="./sign-out.js"></script>
 </html>

@@ -16,11 +16,12 @@ function toggleOtherInput() {
 document.getElementById("sign-in-form").addEventListener("submit", function(event) {
     event.preventDefault();  // Prevents the default form submission
 
-    const inout = 'IN'; // Define inout here
+    const inout = 'In'; // Define inout here
     const loginName = document.getElementById("name").value;
     const reasonSelect = document.getElementById("reason");
     const reason = reasonSelect.value === "Other" ? document.getElementById("otherReason").value : reasonSelect.value; // Get either selected or inputted value
 
+    const addr = localStorage.getItem("ServerAddr")
     const url = `http://127.0.0.1:5000/Log?LoginName=${encodeURIComponent(loginName)}&Reason=${encodeURIComponent(reason)}&inout=${encodeURIComponent(inout)}`;
 
     fetch(url, {

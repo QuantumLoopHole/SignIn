@@ -11,3 +11,5 @@ document.getElementById('signOut').addEventListener('click', function() {
         window.location.href = 'sign-out-page.html'; // Redirect to your sign-out page
     }, 500); // Wait for the slide-out transition to complete
 });
+
+
