@@ -1,0 +1,108 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Include padding and border in element's total width and height */
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(45deg, #8E1E2A, #000000, #ffffff);
+    background-size: 400% 400%;
+    animation: gradient 15s ease forwards infinite;
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 100% 100%;
+        
+    }
+    50% {
+        background-position: 10% 10%;
+    }
+    100% {
+        background-position: 100% 100%;    }
+}
+
+.content {
+    text-align: center; /* Center text within content */
+    color: white; /* Make text visible against the gradient */
+}
+.button-container {
+    display: flex; /* Align buttons side by side */
+    justify-content: center; /* Center buttons */
+    margin-top: 20px; /* Space above buttons */
+}
+
+.button-container .btn {
+    width: 200%; /* Width of buttons */
+    height: 5vh; /* Height of buttons */
+    margin: 0 10px; /* Space between buttons */
+    border: none; /* Remove default border */
+    border-radius: 25px; /* Rounded corners */
+    color: black; /* Change text color to black */
+    font-size: 18px; /* Font size */
+    font-weight: bold; /* Bold text */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: all 0.3s ease; /* Smooth transition for hover effects */
+    display: flex; /* Use flexbox to center text */
+    align-items: center; /* Center text vertically */
+    justify-content: center; /* Center text horizontally */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+}
+
+.btn-primary {
+    background-color: #007BFF; /* Primary button color */
+}
+
+.btn-secondary {
+    background-color: #6C757D; /* Secondary button color */
+}
+
+.btn-primary:hover {
+    background-color: #0056b3; /* Darker shade on hover */
+    transform: translateY(-2px); /* Slight lift effect */
+}
+
+.btn-secondary:hover {
+    background-color: #5a6268; /* Darker shade on hover */
+    transform: translateY(-2px); /* Slight lift effect */
+}
+
+.btn:active {
+    transform: translateY(1px); /* Slightly press down effect */
+}
+
+.page {
+    position: relative;
+    overflow: hidden; /* Hide overflow during transition */
+}
+
+.slide-in {
+    animation: slide-in 0.5s forwards;
+}
+
+.slide-out {
+    animation: slide-out 0.5s forwards;
+}
+
+@keyframes slide-in {
+    from {
+        transform: translateX(100%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
+@keyframes slide-out {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-100%);
+    }
+}
