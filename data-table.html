@@ -5,12 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./data-table.css">
     <title>Dashboard</title>
+    <script src="./settings.js"></script>
 </head>
 <body>
 
     Settings:
-    <button>Change name</button>
-    <button>Change Api Addr</button>
+    <button onclick="SetOrgName()">Change name</button>
+    <button onclick="SetServerAddress()">Change Api Addr</button>
     <div class="container">
         <h2>User Data</h2>
         <div id="tables-container"></div> 
@@ -18,5 +19,4 @@
 
     <script src="./data-table.js"></script> 
 </body>
-<script src="./settings.js"></script>
 </html>

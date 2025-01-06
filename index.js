@@ -13,3 +13,6 @@ document.getElementById('signOut').addEventListener('click', function() {
 });
 
 
+document.getElementById('name').innerText = "Welcome to " + localStorage.getItem("OrgName");
+
+

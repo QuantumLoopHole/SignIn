@@ -1,5 +1,8 @@
+
+// User data table
 document.addEventListener('DOMContentLoaded', () => {
-    fetch('http://127.0.0.1:5000/getdata') // Replace with your API endpoint
+  const apiaddr = localStorage.getItem("ServerAddr");  
+  fetch('/getdata') // Replace with your API endpoint
         .then(response => response.json())
         .then(data => {
             const tablesContainer = document.getElementById('tables-container');

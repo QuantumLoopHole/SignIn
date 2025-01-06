@@ -21,7 +21,8 @@ document.getElementById("sign-in-form").addEventListener("submit", function(even
     const reasonSelect = document.getElementById("reason");
     const reason = reasonSelect.value === "Other" ? document.getElementById("otherReason").value : reasonSelect.value; // Get either selected or inputted value
 
-    const url = `http://127.0.0.1:5000/Log?LoginName=${encodeURIComponent(loginName)}&Reason=${encodeURIComponent(reason)}&inout=${encodeURIComponent(inout)}`;
+    const addr = localStorage.getItem("ServerAddr")
+    const url = `${addr}/Log?LoginName=${encodeURIComponent(loginName)}&Reason=${encodeURIComponent(reason)}&inout=${encodeURIComponent(inout)}`;
 
     fetch(url, {
         method: 'GET'
