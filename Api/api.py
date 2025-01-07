@@ -5,13 +5,26 @@ from datetime import datetime
 
 app = Flask(__name__)
 
+# Create log if not exist
+UserLog = "./user.log"
+
+def FileCreation(File,Content):
+    try:
+        with open(File, 'x') as file:
+            file.write(Content)
+    except FileExistsError:
+        print(f"{File} already exists.")
+
+FileCreation(UserLog,"{\n}")
+FileCreation("settings", "{\n}")
+
 def DataWrite(name, reason, InOrOut):
-    file_path = "./data.json"
+    
     current_date = datetime.now().strftime("%Y-%m-%d")
     
     # Initialize the data structure
     try:
-        with open(file_path, 'r') as file:
+        with open(UserLog, 'r') as file:
             data = json.load(file)
     except (json.JSONDecodeError, FileNotFoundError):
         # If the file doesn't exist or is empty, create a new structure
@@ -34,7 +47,7 @@ def DataWrite(name, reason, InOrOut):
 
     try:
         # Write the updated data back to the file
-        with open(file_path, 'w') as file:
+        with open(UserLog, 'w') as file:
             json.dump(data, file, indent=4)
         print("Data written successfully.")
     except Exception as e:
@@ -50,13 +63,13 @@ def Log():
     reason = request.args.get('Reason')  
     inout = request.args.get("inout")
     message = DataWrite(name, reason, inout)
-    return "(:)"
+    return "Logged"
 
 
 @app.route("/test", methods=['GET'])
 def test():
     print("Test")
-    return ":)"
+    return "Test Worked"
 
 @app.route("/getdata", methods=['GET'])
 def getdata():
