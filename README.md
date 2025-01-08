@@ -22,4 +22,17 @@ These commands are implemented though buttons in the dashboard
 3. Docker-compose
 
 #### Install
-Run the `install.sh` script for ease of use
+
+Clone repository: 
+``` sh
+git clone https://github.com/QuantumLoopHole/SignIn.git ~/SignInServer 
+```
+
+
+Build docker containers:
+``` sh
+cd ~/SignInServer
+sudo docker-compose up --build
+```
+
+
