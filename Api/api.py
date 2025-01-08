@@ -8,16 +8,6 @@ app = Flask(__name__)
 # Create log if not exist
 UserLog = "user.log"
 
-def FileCreation(File,Content):
-    try:
-        with open(File, 'x') as file:
-            file.write(Content)
-    except FileExistsError:
-        print(f"{File} already exists.")
-
-FileCreation(UserLog,"{\n}")
-FileCreation("settings", "{\n}")
-
 def DataWrite(name, reason, InOrOut):
     
     current_date = datetime.now().strftime("%Y-%m-%d")

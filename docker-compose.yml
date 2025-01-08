@@ -5,8 +5,9 @@ services:
       dockerfile: Dockerfile
     ports:
       - "5000:5000"
+    restart: always
     volumes:
-      - ./Api/user.log:/app/user.log
+      - ./user.log:/app/user.log
 
   webserver:
     build:
@@ -16,4 +17,4 @@ services:
       - "80:80"
     volumes:
       - ./WebApp:/usr/share/nginx/html  
-
+    restart: always

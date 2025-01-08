@@ -1,6 +1,4 @@
 /.vscode/
-*.log
 package.json
 server.js
 /node_modules/
-settings
