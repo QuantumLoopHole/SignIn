@@ -7,7 +7,7 @@ services:
       - "5000:5000"
     restart: always
     volumes:
-      - ./user.log:/app/user.log  # Bind mount the log file for persistence
+      - ./user.log:./user.log  # Bind mount the log file for persistence
 
   webserver:
     build:
