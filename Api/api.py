@@ -6,7 +6,7 @@ from datetime import datetime
 app = Flask(__name__)
 
 # Create log if not exist
-UserLog = "./user.log"
+UserLog = "user.log"
 
 def FileCreation(File,Content):
     try:
