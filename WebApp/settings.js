@@ -1,5 +1,5 @@
 function SetServerAddress() {
-    localStorage.setItem("ServerAddr", window.prompt("Set Server Addr"));
+    localStorage.setItem("ServerAddr", "http://" + window.location.hostname + ":5000");
     
 }
 
