@@ -8,18 +8,17 @@ app = Flask(__name__)
 # Create log if not exist
 UserLog = "/log/user.log"
 
-def FileCreation(File,Content):
+def FileCreation(File, Content):
     try:
         with open(File, 'x') as file:
             file.write(Content)
     except FileExistsError:
         print(f"{File} already exists.")
 
-FileCreation(UserLog,"{\n}")
+FileCreation(UserLog, "{\n}")
 
 
 def DataWrite(name, reason, InOrOut):
-    
     current_date = datetime.now().strftime("%Y-%m-%d")
     
     # Initialize the data structure
@@ -38,15 +37,23 @@ def DataWrite(name, reason, InOrOut):
     if name not in data[current_date]:
         data[current_date][name] = []
 
-    # Prepend the new entry to the user's log (instead of appending)
+    # Create the new entry with the current time and reason
     new_entry = {
-        "Time": datetime.now().strftime("%H:%M"),
+        "Time": datetime.now().strftime("%H:%M"),  # Include full time for accurate sorting
         "reason": reason if reason else None  # Set to None if reason is empty
     }
-    data[current_date][name].insert(0, {InOrOut: new_entry})  # Insert at the start
+    
+    # Append the new entry (it will be sorted later)
+    data[current_date][name].append({InOrOut: new_entry})
 
+    # Sort the entries for this user by time (ascending)
+    data[current_date][name] = sorted(data[current_date][name], key=lambda x: x[list(x.keys())[0]]['Time'])
+
+    # Sort the days by newest (latest date first)
+    data = dict(sorted(data.items(), key=lambda x: x[0], reverse=True))
+
+    # Write the updated data back to the file
     try:
-        # Write the updated data back to the file
         with open(UserLog, 'w') as file:
             json.dump(data, file, indent=4)
         print("Data written successfully.")
